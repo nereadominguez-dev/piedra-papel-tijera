@@ -145,18 +145,21 @@ function jugar(jugador) {
   renderPick(pickCpuEl, maquina);
   setStates(res);
 
-  if (res === "empate") {
-    msgEl.className = "message draw";
-    msgEl.textContent = "¡Es un empate!";
-  } else if (res === "gana") {
-    scoreYou++;
-    msgEl.className = "message win";
-    msgEl.textContent = "Ganaste";
-  } else {
-    scoreCpu++;
-    msgEl.className = "message lose";
-    msgEl.textContent = "¡Perdiste!";
-  }
+
+msgEl.classList.remove("win","lose","draw");
+
+if (res === "empate") {
+  msgEl.classList.add("draw");
+  msgEl.textContent = "¡Es un empate!";
+} else if (res === "gana") {
+  scoreYou++;
+  msgEl.classList.add("win");
+  msgEl.textContent = "Ganaste";
+} else {
+  scoreCpu++;
+  msgEl.classList.add("lose");
+  msgEl.textContent = "¡Perdiste!";
+}
 
   updateScore();
 }
