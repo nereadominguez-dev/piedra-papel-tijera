@@ -146,12 +146,15 @@ function jugar(jugador) {
   setStates(res);
 
   if (res === "empate") {
+    msgEl.className = "message draw";
     msgEl.textContent = "¡Es un empate!";
   } else if (res === "gana") {
     scoreYou++;
+    msgEl.className = "message win";
     msgEl.textContent = "Ganaste";
   } else {
     scoreCpu++;
+    msgEl.className = "message lose";
     msgEl.textContent = "¡Perdiste!";
   }
 
