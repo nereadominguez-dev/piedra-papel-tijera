@@ -29,6 +29,26 @@ body{
     radial-gradient(700px 500px at 90% 30%, rgba(233,230,237,.7), transparent 55%),
     var(--bg);
 }
+/* Input con borde siempre visible */
+.field{
+  width: 100%;
+  min-width: 240px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(84,89,95,.35); /* visible siempre */
+  background: rgba(255,255,255,.85);
+  color: var(--primary);
+  outline: none;
+}
+
+.field::placeholder{
+  color: rgba(122,122,122,.9);
+}
+
+.field:focus{
+  border-color: rgba(84,89,95,.7);
+  box-shadow: var(--ring);
+}
 
 .app{
   width:min(980px, 92vw);
@@ -131,16 +151,56 @@ h1{
 
 .choices{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .choice{
-  padding:14px;
-  border-radius:var(--radius);
-  background: var(--surface);
+  display:flex;
+  align-items:center;
+  gap: 12px;
+
+  padding: 14px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(0,0,0,.10);
   cursor:pointer;
-  text-align:center;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  transition: transform .08s ease, border-color .15s ease, background .15s ease;
+}
+
+.choice:hover{
+  transform: translateY(-1px);
+  border-color: rgba(84,89,95,.45);
+  background: rgba(255,255,255,.95);
+}
+
+.choice:focus-visible{
+  outline:none;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08), var(--ring);
+}
+.icon{
+  width: 42px;
+  height: 42px;
+  display:grid;
+  place-items:center;
+
+  color: var(--primary);
+  background: rgba(233,230,237,.75);
+  border: 1px solid rgba(84,89,95,.18);
+  border-radius: 14px;
+}
+
+.icon svg{
+  width: 24px;
+  height: 24px;
+}
+.txt{
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
 }
 
 .foot{
@@ -153,6 +213,10 @@ h1{
   text-align:center;
 }
 
+@media(max-width:700px){
+  .arena{grid-template-columns:1fr}
+  .choices{grid-template-columns:1fr}
+}
 @media(max-width:700px){
   .arena{grid-template-columns:1fr}
   .choices{grid-template-columns:1fr}
