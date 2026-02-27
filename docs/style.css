@@ -10,10 +10,6 @@
   --text: #7A7A7A;
   --muted: rgba(84,89,95,.7);
 
-  --win: #6f8f7a;
-  --lose: #9a6b6b;
-  --draw: #6f7f8f;
-
   --danger: #b00020;
 
   --radius: 18px;
@@ -226,22 +222,33 @@ h1{
   .choices{grid-template-columns:1fr}
 }
 
-/* Estados visuales del resultado */
+/* ===== Estados del juego (suaves, visibles) ===== */
+:root{
+  --win: #6f8f7a;   /* verde grisáceo */
+  --lose:#9a6b6b;   /* rojo apagado */
+  --draw:#6f7f8f;   /* azul grisáceo */
+}
+
+/* Resalta las cajas de elección */
 .pick.win{
-  border: 2px solid rgba(111,143,122,.6);
-  background: rgba(111,143,122,.12);
+  border: 2px solid rgba(111,143,122,.65) !important;
+  background: rgba(111,143,122,.14) !important;
 }
-
 .pick.lose{
-  border: 2px solid rgba(154,107,107,.6);
-  background: rgba(154,107,107,.12);
+  border: 2px solid rgba(154,107,107,.65) !important;
+  background: rgba(154,107,107,.14) !important;
 }
-
 .pick.draw{
-  border: 2px solid rgba(111,127,143,.6);
-  background: rgba(111,127,143,.12);
+  border: 2px solid rgba(111,127,143,.65) !important;
+  background: rgba(111,127,143,.14) !important;
 }
 
-.message.win{ color: var(--win); font-weight:600; }
-.message.lose{ color: var(--lose); font-weight:600; }
-.message.draw{ color: var(--draw); font-weight:600; }
+/* Si tu layout aplica el fondo en un elemento interno, cubrimos también lo de dentro */
+.pick.win *{ color: var(--primary) !important; }
+.pick.lose *{ color: var(--primary) !important; }
+.pick.draw *{ color: var(--primary) !important; }
+
+/* Mensaje "Ganaste / Perdiste / Empate" */
+.message.win{ color: var(--win) !important; font-weight:700; }
+.message.lose{ color: var(--lose) !important; font-weight:700; }
+.message.draw{ color: var(--draw) !important; font-weight:700; }
