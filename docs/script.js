@@ -213,3 +213,6 @@ playAgainBtn.addEventListener("click", volverAJugar);
 // Vista inicial
 setView("start");
 updateScore();
+// Año automático en el footer
+const yearEl = document.querySelector("#year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
