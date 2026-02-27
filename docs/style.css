@@ -10,6 +10,10 @@
   --text: #7A7A7A;
   --muted: rgba(84,89,95,.7);
 
+  --win: #6f8f7a;
+  --lose: #9a6b6b;
+  --draw: #6f7f8f;
+
   --danger: #b00020;
 
   --radius: 18px;
@@ -221,3 +225,23 @@ h1{
   .arena{grid-template-columns:1fr}
   .choices{grid-template-columns:1fr}
 }
+
+/* Estados visuales del resultado */
+.pick.win{
+  border: 2px solid rgba(111,143,122,.6);
+  background: rgba(111,143,122,.12);
+}
+
+.pick.lose{
+  border: 2px solid rgba(154,107,107,.6);
+  background: rgba(154,107,107,.12);
+}
+
+.pick.draw{
+  border: 2px solid rgba(111,127,143,.6);
+  background: rgba(111,127,143,.12);
+}
+
+.message.win{ color: var(--win); font-weight:600; }
+.message.lose{ color: var(--lose); font-weight:600; }
+.message.draw{ color: var(--draw); font-weight:600; }
